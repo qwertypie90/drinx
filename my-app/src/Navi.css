@@ -1,0 +1,11 @@
+.container {
+	font-family: 'Share Tech Mono', monospace;
+}
+
+.navbar-default {
+	background-color: #E6E6FA;
+}
+
+p.navbar-text {
+float: right;
+}
