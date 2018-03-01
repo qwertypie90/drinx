@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
-
 import Navi from './Navi'
-import Fields from './Fields'
+// import Fields from './Fields'
 
 
 class App extends Component {
@@ -13,67 +12,60 @@ class App extends Component {
         this.handleSelect = this.handleSelect.bind(this)
 
         this.state = {
-          day: "",
-          area:""
+          day: "What Day?",
+          area:"Area?"
         };
 
     };
 
   componentDidMount() { 
   }
+  
+    // handleClick(e) {
+    //     console.log(e.target.getAttribute('eventKey'));
+    // }
 
-
-    getDay() {
-    // var day = document.getElementById("dropdown-size-large");
-    // document.getElementById("dropdown-size-large").innerHTML = 
-    // day.options[day.selectedIndex].text;
+handleSelect(event, key){
+console.log(event)
+this.setState({[key]: event})
 }
 
-  onInputChange(day, area) {
-  this.setState({day}),
-  this.setState({area})
-  }
-  
-    handleClick(e) {
-        console.log(e.target.getAttribute('eventKey'));
-    }
-
-handleSelect(event,eventKey){
-console.log("event " + event)
-console.log(eventKey);
- }
 
 render() {
-  const {day, area} = this.state;
-
     return (
+
+      // <Step1 area={this.state.area} day={this.state.day} handleSelect={this.handleSelect} />
+      // <Step2 />
+
       <div>
   <Navi />
 
   <ButtonToolbar>
     <DropdownButton
       bsSize="large"
-      title="Choose Your Day"
+      title={this.state.day}
       id="dropdown-size-large"
-      onSelect = {(event, eventKey) => {this.handleSelect(event, eventKey)}}
+      onSelect = {(event) => {this.handleSelect(event, 'day')}}
     >
-      <MenuItem eventKey="1">Monday</MenuItem>
-      <MenuItem eventKey="2">Tuesday</MenuItem>
-      <MenuItem eventKey="3">Wednesday</MenuItem>
-      <MenuItem eventKey="4">Thursday</MenuItem>
-      <MenuItem eventKey="5">Friday</MenuItem>
-      <MenuItem eventKey="6">Saturday</MenuItem>
-      <MenuItem eventKey="7">Sunday</MenuItem>
+      <MenuItem eventKey="Monday">Monday</MenuItem>
+      <MenuItem eventKey="Tuesday">Tuesday</MenuItem>
+      <MenuItem eventKey="Wednesday">Wednesday</MenuItem>
+      <MenuItem eventKey="Thursday">Thursday</MenuItem>
+      <MenuItem eventKey="Friday">Friday</MenuItem>
+      <MenuItem eventKey="Saturday">Saturday</MenuItem>
+      <MenuItem eventKey="Sunday">Sunday</MenuItem>
     </DropdownButton>
   </ButtonToolbar>
     <ButtonToolbar>
     <DropdownButton
       bsSize="large"
-      title="Area"
+      title={this.state.area}
       id="dropdown-size-large"
+      onSelect = {(event) => {this.handleSelect(event, 'area')}}
+
     >
-     <MenuItem eventKey="1">North Hollywood, CA</MenuItem>
-      <MenuItem eventKey="2">More Cities Coming Soon</MenuItem>
+     <MenuItem eventKey="North Hollywood, CA">North Hollywood, CA</MenuItem>
+      <MenuItem eventKey="n/a">More Cities Coming Soon</MenuItem>
 
         </DropdownButton>
   </ButtonToolbar>
