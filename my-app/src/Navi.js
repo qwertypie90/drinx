@@ -7,14 +7,14 @@ const Navi = () =>
 <Navbar>
   <Navbar.Header>
     <Navbar.Brand>
-      <a href="#home">driinx</a>
+      <a href="/">driinx</a>
     </Navbar.Brand>
   </Navbar.Header>
   <Nav>
-    <NavItem eventKey={1} href="#">
+    <NavItem eventKey={1} href="/about">
       About
     </NavItem>
-    <NavItem eventKey={2} href="#">
+    <NavItem eventKey={2} href="/admin">
       Login
     </NavItem>
     <NavDropdown eventKey={3} title="MAS" id="basic-nav-dropdown">
@@ -22,7 +22,7 @@ const Navi = () =>
       <MenuItem eventKey={3.2}>Suggestions</MenuItem>
       <MenuItem eventKey={3.3}>Something else here</MenuItem>
       <MenuItem divider />
-      <MenuItem eventKey={3.4}>Login</MenuItem>
+      <MenuItem eventKey={3.4} href="#">Login</MenuItem>
     </NavDropdown>
       </Nav>
     <Navbar.Text>
