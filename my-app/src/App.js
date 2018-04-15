@@ -1,39 +1,65 @@
 import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navi from './Navi';
-import Admin from './Admin';
-import Home from './Home';
-// import Fields from './Fields'
+import { MenuItem, ButtonToolbar, DropdownButton, } from "react-bootstrap";
 
 
-class App extends Component {
+class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSelect = this.handleSelect.bind(this)
+
+        this.state = {
+            day: "What Day?",
+            area: "Area?"
+        };
+
+    };
     
-  
-    // handleClick(e) {
-    //     console.log(e.target.getAttribute('eventKey'));
-    // }
+    handleSelect(event, key) {
+        console.log(event)
+        this.setState({
+            [key]: event })
+    }
+    render() {
+        return ( 
+          < div >
+            <
+            ButtonToolbar >
+            <
+            DropdownButton bsSize = "large"
+            title = { this.state.day } id = "dropdown-size-large"
+            onSelect = {
+                event => {
+                    this.handleSelect(event, "day");
+                }
+            } >
+            <
+            MenuItem eventKey = "Monday" > Monday < /MenuItem> <
+            MenuItem eventKey = "Tuesday" > Tuesday < /MenuItem> <
+            MenuItem eventKey = "Wednesday" > Wednesday < /MenuItem> <
+            MenuItem eventKey = "Thursday" > Thursday < /MenuItem> <
+            MenuItem eventKey = "Friday" > Friday < /MenuItem> <
+            MenuItem eventKey = "Saturday" > Saturday < /MenuItem> <
+            MenuItem eventKey = "Sunday" > Sunday < /MenuItem> <
+            /DropdownButton> <
+            /ButtonToolbar> <
+            ButtonToolbar >
+            <
+            DropdownButton bsSize = "large"
+            title = { this.state.area } id = "dropdown-size-large"
+            onSelect = {
+                event => {
+                    this.handleSelect(event, "area");
+                }
+            } >
+            <
+            MenuItem eventKey = "North Hollywood, CA" > North Hollywood, CA < /MenuItem> <
+            MenuItem eventKey = "n/a" > More Cities Coming Soon < /MenuItem> <
+            /DropdownButton> <
+            /ButtonToolbar> <
+            /div>
+        )
+    };
+};
 
-
-
-render() {
-    return (
-
-      // <Step1 area={this.state.area} day={this.state.day} handleSelect={this.handleSelect} />
-      // <Step2 />
-  <Router>
-    <div>
-      <Navi />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/admin" component={Admin} />
-      </Switch>
-    </div>
-  </Router>
-  
-    )
-}
-
-}
-
-export default App;
+export default Home;

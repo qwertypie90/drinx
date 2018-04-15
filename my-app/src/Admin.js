@@ -3,9 +3,11 @@ import { FormControl, FormGroup, Col, ControlLabel, Form, Checkbox, Button } fro
 
 class Admin extends React.Component {
 
+
     render() {
         return ( 
-        	< div >
+               < div >
+
             < Form horizontal >
             < FormGroup controlId = "name" >
             < Col componentClass = { ControlLabel } sm = { 2 } >
@@ -139,9 +141,10 @@ class Admin extends React.Component {
             <
             /Col> <
             /FormGroup>
+                  </Form> 
+ <Button bsStyle="info">Submit To Database</Button>
 
-   			</Form> <
-            /div>
+            </div>
         )
     }
 }
