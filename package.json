@@ -8,13 +8,19 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "server": "node index.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon index.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "mongojs": "^2.5.0",
     "mongoose": "^5.0.8"
   }
 }

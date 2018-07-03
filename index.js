@@ -7,7 +7,7 @@ require('./models/Resturant');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
