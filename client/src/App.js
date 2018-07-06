@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navi from './Navi';
+import About from './About';
 import Admin from './Admin';
 import Home from './Home';
 // import Fields from './Fields'
@@ -27,6 +28,7 @@ render() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/admin" component={Admin} />
+        <Route exact path="/about" component={About} />
       </Switch>
     </div>
   </Router>

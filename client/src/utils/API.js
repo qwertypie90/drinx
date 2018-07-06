@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all resturants
-  getNhResturants: function() {
-    return axios.get("/api/nhresturants");
+  getNhResturants: function(resturantData) {
+    return axios.get("/api/nhresturants", resturantData);
   },
   // Saves a resturant to the database
   saveNhResturants: function(resturant) {

@@ -212,7 +212,9 @@ class Admin extends React.Component {
             <
             /Col> <
             /FormGroup>
-            <Button onClick={this.onSubmit}>Submit</Button>
+            <Button 
+            onClick={this.onSubmit}
+            >Submit</Button>
    			</Form> <
             /div>
         )
