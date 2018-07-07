@@ -22,14 +22,32 @@ class Home extends Component {
             [key]: event })
     }
 
-    onSubmit = () => {
-       API.getNhResturants()
+    loadAll = () => {
+       API.Resturants()
       .then(res =>
         this.setState({ resturants: res.data, name: "", 
             address: "", number: "" })
       )
       .catch(err => console.log(err));
     };
+    
+    Specifc = day => {
+        API.getSpecificResturants(day)
+        .then(res =>
+        this.setState({ resturants: res.data, name: "", 
+            address: "", number: "" })
+      )
+      .catch(err => console.log(err));
+    };
+
+    onSubmit = () => {
+         API.getSpecificResturants(this.state.day)
+        .then(res =>
+        this.setState({ resturants: res.data, name: "", 
+            address: "", number: "" })
+      )
+      .catch(err => console.log(err));
+    }
 
     render() {
         return ( 
@@ -71,7 +89,7 @@ class Home extends Component {
               <h1>Search Results</h1>
             </Jumbotron>
             {this.state.resturants.length ? (
-              <ul className="list-group">
+              <ol>
                 {this.state.resturants.map(nhresturants => {
                   return (
                     <li key={nhresturants._id}>
@@ -81,7 +99,7 @@ class Home extends Component {
                     </li>
                   );
                 })}
-              </ul>
+              </ol>
             ) : (
               <h3>No Results to Display</h3>
             )}
