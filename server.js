@@ -3,9 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const keys = require('./config/key');
-require('./models/Resturant');
-
-mongoose.connect(keys.mongoURI);
+const rRoutes = require('./routes/restaurants.js');
+var cors = require('cors')
+const router = express.Router();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,10 +15,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.use(cors())
 
 app.use(express.static("public"));
-require('./routes/resturants')(app);
+app.use('/', rRoutes);
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+mongoose.connect(keys.mongoURI, (err) => {
+  if (err) throw err;
+  console.log('Database successfully connected');
+  app.listen(keys.PORT, () => {
+    console.log(`App listening on PORT ${keys.PORT}`);
+  });
 });

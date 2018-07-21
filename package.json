@@ -8,13 +8,21 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
-    "mongoose": "^5.0.8"
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.8",
+    "rc-time-picker": "^3.3.1",
+    "react-combo-date-picker": "^1.0.1",
+    "react-datetime": "^2.14.0",
+    "react-time-range": "^1.0.2",
+    "superagent": "^3.8.3"
   }
 }

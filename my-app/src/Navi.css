@@ -9,3 +9,20 @@
 p.navbar-text {
 float: right;
 }
+
+.radio {
+  margin-top: 0;
+  padding-left: 10px;
+  margin-bottom: 0;
+  display: inline;
+
+}
+
+.btn {
+margin-left: 20px;	
+}
+
+
+.dropdown {
+margin-left: 20px;	
+}
