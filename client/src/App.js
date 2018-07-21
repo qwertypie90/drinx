@@ -5,6 +5,7 @@ import Navi from './Navi';
 import About from './About';
 import Admin from './Admin';
 import Home from './Home';
+import FAQ from './FAQ';
 // import Fields from './Fields'
 
 
@@ -29,6 +30,7 @@ render() {
         <Route exact path="/" component={Home} />
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/faq" component={FAQ} />
       </Switch>
     </div>
   </Router>
