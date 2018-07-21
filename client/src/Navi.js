@@ -14,19 +14,12 @@ const Navi = () =>
     <NavItem eventKey={1} href="/about">
       About
     </NavItem>
-    <NavItem eventKey={2} href="/admin">
-      Login
+    <NavItem eventKey={2} href="/faq">
+      FAQ
     </NavItem>
-    <NavDropdown eventKey={3} title="MAS" id="basic-nav-dropdown">
-      <MenuItem eventKey={3.1}>Collab?</MenuItem>
-      <MenuItem eventKey={3.2}>Suggestions</MenuItem>
-      <MenuItem eventKey={3.3}>Something else here</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey={3.4} href="#">Login</MenuItem>
-    </NavDropdown>
       </Nav>
     <Navbar.Text>
-      Signed in as: <Navbar.Link href="#">Robyn Fenty</Navbar.Link>
+      <Navbar.Link href="/admin">Login</Navbar.Link>
     </Navbar.Text>
 
 </Navbar>;
