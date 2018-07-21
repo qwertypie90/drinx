@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MenuItem, ButtonToolbar, DropdownButton, Button, Jumbotron} from "react-bootstrap";
 import API from "./utils/API";
+import './index.css';
+
 
 
 class Home extends Component {
@@ -35,7 +37,7 @@ class Home extends Component {
         API.getSpecificResturants(day)
         .then(res =>
         this.setState({ resturants: res.data, name: "", 
-            address: "", number: "" })
+            address: "", number: "", day: "" })
       )
       .catch(err => console.log(err));
     };
@@ -44,10 +46,12 @@ class Home extends Component {
          API.getSpecificResturants(this.state.day)
         .then(res =>
         this.setState({ resturants: res.data, name: "", 
-            address: "", number: "" })
+            address: "", number: "", day: "" })
       )
       .catch(err => console.log(err));
     }
+
+
 
     render() {
         return ( 
@@ -85,13 +89,13 @@ class Home extends Component {
             onClick={this.onSubmit}
             >Submit</Button>
             </ButtonToolbar> 
-            <Jumbotron>
               <h1>Search Results</h1>
-            </Jumbotron>
             {this.state.resturants.length ? (
+              
               <ol>
                 {this.state.resturants.map(nhresturants => {
                   return (
+
                     <li key={nhresturants._id}>
                       <h1> {nhresturants.name} </h1>
                       <h2> {nhresturants.address} </h2>
