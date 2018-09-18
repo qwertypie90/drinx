@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 
 class FAQ extends React.Component {
+	
 	render() {
 		return (
 			<div className="container">
